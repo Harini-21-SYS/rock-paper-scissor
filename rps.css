@@ -1,42 +1,72 @@
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    padding: 1rem;
 }
-h1{
-    font-size: 3.5rem;
-    color:hsl(0,0%,20%);
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* scales with screen size */
+    color: hsl(0,0%,20%);
+    text-align: center;
 }
-.choices{
-    margin-bottom: 30px;
+
+.choices {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping on small screens */
+    justify-content: center;
+    gap: 1rem;
 }
-.choices button{
-    font-size: 7.5rem;
-    min-width:160px;
-    margin: 0 10px;
-    border-radius: 250px;
+
+.choices button {
+    font-size: clamp(3rem, 10vw, 7.5rem); /* responsive emoji size */
+    flex: 1 1 100px; /* flexible width */
+    min-width: 80px;
+    max-width: 160px;
+    border-radius: 50%;
     background-color: hsl(200,100%,50%);
     cursor: pointer;
     transition: background-color 0.5s ease;
 }
-.choices button:hover{
+
+.choices button:hover {
     background-color: hsl(200,100%,70%);
 }
-#playerDisplay, #computerDisplay{
-    font-size: 3rem;
+
+#playerDisplay, #computerDisplay {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    text-align: center;
 }
-#resultDisplay{
-    font-size: 5rem;
-    margin: 30px 0;
+
+#resultDisplay {
+    font-size: clamp(2rem, 6vw, 5rem);
+    margin: 2rem 0;
+    text-align: center;
 }
-.greenText , #playerScoreDisplay{
-    color:hsl(130,84%,54%);
+
+.greenText, #playerScoreDisplay {
+    color: hsl(130,84%,54%);
 }
-.redText , #computerScoreDisplay{
-    color:hsl(0,84%,60%);
+
+.redText, #computerScoreDisplay {
+    color: hsl(0,84%,60%);
 }
-.scoreDisplay{
-    font-size: 2rem;
+
+.scoreDisplay {
+    font-size: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+/* Media queries for very small screens */
+@media (max-width: 500px) {
+    .choices button {
+        font-size: 3rem;
+        min-width: 60px;
+        max-width: 100px;
+    }
 }
